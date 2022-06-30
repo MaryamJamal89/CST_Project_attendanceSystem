@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Employee Profile</title>
+    <link rel="stylesheet" href="../../Styles/admin.css">
+    <script src="../../src/jquery-3.6.0.js"></script>
+    <script type="module" src="../../Screpts/Employee/employee.js"></script>
+    <script>
+        function openCity(evt, cityName) {
+            // Declare all variables
+            var i, tabcontent, tablinks;
+
+            // Get all elements with class="tabcontent" and hide them
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+
+            // Get all elements with class="tablinks" and remove the class "active"
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+
+            // Show the current tab, and add an "active" class to the button that opened the tab
+            document.getElementById(cityName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+    </script>
+</head>
+
+<body>
+    <!-- Tab links -->
+    <label id="employeeName">Employee Name</label>
+    <div class="tab">
+        <button class="tablinks" type="button" onclick="openCity(event, 'table')" id="Daily" value="Daily Report">Daily
+            Report</button>
+        <button class="tablinks" type="button" onclick="openCity(event, 'table')" id="Monthly"
+            value="Monthly Report">Monthly Report</button>
+    </div>
+
+    <div class="container">
+        <table id="table"></table>
+    </div>
+</body>
+
+</html>

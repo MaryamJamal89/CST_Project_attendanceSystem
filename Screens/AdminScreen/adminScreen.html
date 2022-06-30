@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Admin Profile</title>
+    <link rel="stylesheet" href="../../Styles/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="../../src/jquery-3.6.0.js"></script>
+    <script type="module" src="../../Screpts/Admin/admin.js"></script>
+    <script>
+        function openCity(evt, cityName) {
+            // Declare all variables
+            var i, tabcontent, tablinks;
+
+            // Get all elements with class="tabcontent" and hide them
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+
+            // Get all elements with class="tablinks" and remove the class "active"
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+
+            // Show the current tab, and add an "active" class to the button that opened the tab
+            document.getElementById(cityName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+    </script>
+</head>
+
+<body>
+    <!-- Tab links -->
+    <div class="tab">
+        <button class="tablinks" type="button" onclick="openCity(event, 'table')" id="allEmployeesBtn"
+            value="All Employees">All Employees</button>
+        <button class="tablinks" type="button" onclick="openCity(event, 'table')" id="fullReportBtn"
+            value="Full Report">Full Report</button>
+        <button class="tablinks" type="button" onclick="openCity(event, 'table')" id="lateAttendanceReportBtn"
+            value="Late Attendance Report">Late Attendance Report</button>
+        <button class="tablinks" type="button" onclick="openCity(event, 'table')" id="excuseReportBtn"
+            value="Excuse Report">Excuse Report</button>
+        <button class="tablinks" type="button" onclick="openCity(event, 'table')" id="pendingEmployeeBtn"
+            value="Pending Employee">Pending Employee</button>
+    </div>
+    
+    <div class="container">
+        <table id="table"></table>
+    </div>
+</body>
+
+</html>
